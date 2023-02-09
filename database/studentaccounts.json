@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "609a39b62b2afc252876c163"
+  },
+  "role": "student",
+  "email": "51800015@student.tdtu.edu.vn",
+  "name": "Lê Thanh Bình",
+  "nickName": "",
+  "class": "",
+  "department": "",
+  "avatar": "https://lh3.googleusercontent.com/a/AATXAJyuuI_ldJAq1Pj1zcarT2aYPGqmi2eG1qTc8R6E=s96-c",
+  "__v": 0
+}]

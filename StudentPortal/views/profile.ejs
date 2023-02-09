@@ -1,0 +1,103 @@
+
+<!-- Bài viết -->
+
+<% blogs.forEach(blog => { %>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8 border rounded py-2 mt-3 bg-white" id="<%= blog._id %>">
+        <!-- Người đăng -->
+        <div class="d-flex justify-content-between">
+            <div class="d-flex d-row">
+                <img class="mr-2 rounded-circle mt-2" src="<%= blog.userAvatar %> " alt="Avatar user" width="35px" height="35px">
+                <div class="flex-column">
+                    <a href="/user/profile/<%= blog.userID %>" class="text-dark"><b><%= blog.userName %></b></a>
+                    <p class="text-secondary fs-smaller"><%= blog.create_on %></p>
+                </div>
+            </div>
+            <!-- sửa/xóa -->
+            <% if (user._id == blog.userID || user.role == 'admin') { %> 
+                <div class="dropdown">
+                    <button type="button" class="btn bi bi-three-dots rounded-pill" data-toggle="dropdown"></button>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-item" data-blogID="<%= blog._id %>" data-action="edit">Sửa</div>
+                        <div class="dropdown-item" onclick="deleteBlog(this)" data-blogID="<%= blog._id %>" data-userID="<%= blog.userID %>">Xóa</div>
+                    </div>
+                </div>
+            <% } %> 
+        </div>
+        <!-- Nội dung -->
+        <div class="text-justify">
+            <p>
+                <%= blog.content %> 
+            </p>
+            <% if(blog.image) {%> 
+                <div class="text-center">
+                    <img src="<%= blog.image %> " alt="Blog image" class="img-fluid">
+                </div>
+            <% } %> 
+            <% if(blog.video) {%> 
+                <div class="text-center">
+                    <iframe width="498" height="280" src="//www.youtube.com/embed/<%= blog.video %> " frameborder="0" allowfullscreen></iframe>
+                </div>
+            <% } %> 
+            
+        </div>
+        <!-- like/comment -->
+        <div class="d-flex justify-content-between my-2">
+            <i class="bi bi-hand-thumbs-up"><span id="like-number-<%= blog._id %>"><%= blog.like %></span> lượt thích</i>
+            <i><span id="comment-number-<%= blog._id %>"><%=blog.comments.length%></span> bình luận</i>
+        </div>
+
+        <!-- button like/comment -->
+        <hr class="mt-3 mb-1">
+        <div class="d-flex justify-content-around my-2">
+            <button type="button" class="btn btn-outline-secondary" onclick="likeBlog('<%= blog._id %>')"><i class="bi bi-hand-thumbs-up">&nbsp;Thích</i></button>
+            <button type="button" class="btn btn-outline-secondary" onclick="showComment('blog-<%= blog._id %>')"><i class="bi bi-chat-left">&nbsp;Bình luận</i></button>
+        </div>
+
+        <!-- comment -->
+        <div class="home-comment" id="blog-<%= blog._id %>">
+            <hr class="mb-3 mt-1">
+            <!-- use AJAX to comment -->
+            <form action="javascript:void(0);" method="POST">
+                <div class="d-flex d-row">
+                    <img class="mr-2 rounded-circle" src="<%= user.avatar %> " alt="Avatar user" width="35px" height="35px">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Viết bình luận..." id="comment-<%= blog._id %>">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" onclick="commentTo('<%= blog._id %>')">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- all comment -->
+            <div class="d-flex flex-column-reverse" id="all-comment-<%= blog._id %>">
+                <% blog.comments.forEach(comment => { %>
+                    <div class="mt-3 d-flex d-row" id="comment-id-<%= comment._id %> ">
+                        <img class="mr-2 rounded-circle mt-2" src="<%= comment.userAvatar %> " alt="Avatar user" width="35px" height="35px">
+                        <div class="flex-column p-2 border rounded">
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-column">
+                                    <a href="/user/profile/<%= comment.userID %>" class="text-dark"><b class="text-sm pt-1"><%= comment.userName %></b></a>
+                                    <p class="text-secondary fs-smaller"><%= comment.create_on %></p>
+                                </div>
+                               
+                                <% if (user._id == comment.userID) { %> 
+                                    <div class="dropdown">
+                                        <button type="button" class="btn bi bi-three-dots rounded-pill" data-toggle="dropdown"></button>
+                                        <div class="dropdown-menu">
+                                            <div class="dropdown-item" onclick="deleteComment(this)" data-commentID="<%= comment._id %>" data-userID="<%= comment.userID %>">Xóa</div>
+                                        </div>
+                                    </div>
+                                <% } %> 
+                            </div>
+                            <p class="text-justify"><%= comment.comment %> </p>
+                        </div>
+                    </div>  
+                <% }) %> 
+            </div>
+            
+            
+        </div>
+    </div>
+    <div class="col-lg-2"></div>
+<% }) %>  

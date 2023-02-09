@@ -1,0 +1,19 @@
+<div class="row department">
+    <div class="col-md-12 px-3 py-1 mt-3 bg-secondary text-light">
+        <h5>Danh sách phòng ban</h5>
+    </div>
+    <!-- list of Department -->
+    <!-- chuyển sang phòng ban theo ID -->
+    <% departments.forEach(department => { %>
+        <div class="col-lg-3 col-sm-6 mt-3 mr-n3">
+            <div class="card">
+                <img src="/images/tdtu_logo.png" class="card-img-top p-1" alt="avatar <%= department.department %> ">
+                <div class="card-body border">
+                    <h5 class="card-title text-center"><a href="/department/<%= department.departmentID%>"><%= department.department %></a></h5>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+    <!-- END list of Department -->
+
+</div>

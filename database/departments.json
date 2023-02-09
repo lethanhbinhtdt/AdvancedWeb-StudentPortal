@@ -1,0 +1,155 @@
+[{
+  "_id": {
+    "$oid": "609a1ce1c733563078380ffc"
+  },
+  "departmentID": "001",
+  "department": "Phòng CTHSSV",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a1d18f2ad8e2d2c61e954"
+  },
+  "departmentID": "002",
+  "department": "Phòng Đại học",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a1d2cf2ad8e2d2c61e955"
+  },
+  "departmentID": "003",
+  "department": "Phòng Sau đại học",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a1d3cf2ad8e2d2c61e956"
+  },
+  "departmentID": "004",
+  "department": "Phòng điện toán và máy tính",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a1d46f2ad8e2d2c61e957"
+  },
+  "departmentID": "005",
+  "department": "Phòng khảo thí và kiểm định chất lượng",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a52678911a72a902cfb6a"
+  },
+  "departmentID": "006",
+  "department": "Phòng tài chính",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a528e8911a72a902cfb6b"
+  },
+  "departmentID": "007",
+  "department": "TDT Creative Language Center",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a529b8911a72a902cfb6c"
+  },
+  "departmentID": "008",
+  "department": "Trung tâm tin học",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a52b78911a72a902cfb6e"
+  },
+  "departmentID": "009",
+  "department": "Trung tâm đào tạo phát triển xã hội (SDTC)",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a52f78911a72a902cfb6f"
+  },
+  "departmentID": "010",
+  "department": "Trung tâm phát triển Khoa học quản lý và Ứng dụng công nghệ",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a53098911a72a902cfb70"
+  },
+  "departmentID": "011",
+  "department": "Trung tâm hợp tác doanh nghiệp và cựu sinh viên",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a534a8911a72a902cfb71"
+  },
+  "departmentID": "012",
+  "department": "Khoa Luật",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a53598911a72a902cfb72"
+  },
+  "departmentID": "013",
+  "department": "Trung tâm ngoại ngữ - tin học – bồi dưỡng văn hóa",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a53648911a72a902cfb73"
+  },
+  "departmentID": "014",
+  "department": "Viện chính sách kinh tế và kinh doanh",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a537d8911a72a902cfb75"
+  },
+  "departmentID": "015",
+  "department": "Khoa Mỹ thuật công nghiệp",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a538a8911a72a902cfb77"
+  },
+  "departmentID": "016",
+  "department": "Khoa Điện – Điện tử",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a53958911a72a902cfb78"
+  },
+  "departmentID": "017",
+  "department": "Khoa Công nghệ thông tin",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a539f8911a72a902cfb79"
+  },
+  "departmentID": "018",
+  "department": "Khoa Quản trị kinh doanh",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a53a98911a72a902cfb7a"
+  },
+  "departmentID": "019",
+  "department": "Khoa Môi trường và bảo hộ lao động",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a53b68911a72a902cfb7b"
+  },
+  "departmentID": "020",
+  "department": "Khoa Lao động công đoàn",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a53c28911a72a902cfb7c"
+  },
+  "departmentID": "021",
+  "department": "Khoa Tài chính ngân hàng",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a53db8911a72a902cfb7e"
+  },
+  "departmentID": "022",
+  "department": "Khoa giáo dục quốc tế",
+  "__v": 0
+}]

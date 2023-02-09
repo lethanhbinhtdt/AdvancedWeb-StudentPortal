@@ -1,0 +1,146 @@
+
+/*--- ALL */
+.fs-smaller {
+    font-size: smaller;
+}
+.fs-larger{
+    font-size: large;
+}
+.fs-icon{
+    font-size: 20px;
+    margin-right: 3px;
+}
+
+body {
+    background-color: #f0f2f5;
+}
+
+/*--- navbar */
+.navbar-end {
+    margin-right: 150px;
+}
+
+.navbar-drop {
+    width: 40px;
+    height: 40px;
+    background-color: #d8d8da;
+}
+.navbar-drop-transform {
+    transform: translateX(-20px);
+}
+
+.navbar-icon {
+    font-size: 25px;
+    width: 100px;
+    text-align: center;
+    border-radius: 10px;
+}
+.navbar-icon:hover {
+    background-color: #e9e9e9;
+}
+
+.navbar-collapse .at {
+    border: solid, 1px, black;
+    border-radius: 10px;
+}
+
+/*--- Home */
+.home-nav-bg-custom {
+    background-color: #f3f0f0;
+}
+/* max line: 3 */
+.noti-content-3line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
+/*--- Profile */
+/* hover sẽ hiện nút để sửa avatar */
+#profile-avatar{
+    width: 168px;
+    height: 168px;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+#profile-btn-avatar {
+    transition: .5s ease;
+    opacity: 0;
+    transform: translate(18px, -100px); /*chuyển đến giữa avatar*/
+    -ms-transform: translate(-50%, -50%);
+}
+.profile-avatar:hover #profile-avatar {
+    opacity: 0.4;
+}
+.profile-avatar:hover #profile-btn-avatar {
+    opacity: 1;
+}
+
+.profile-hr {
+    height: 1px;
+    border-width:0;
+    color:black;
+    background-color:black
+}
+
+/*--- department */
+.department img {
+    max-width: 512px;
+}
+.department .card-body {
+    height: 100px;
+}
+
+/*--- home */
+.home-new-noti {
+    font-size: smaller;
+}
+
+.home-new-noti a :hover {
+    font-size: medium;
+    color: red;
+    text-decoration: none;
+}
+
+.home-comment {
+    display: none;
+}
+/*--- notifications */
+.notifications-title {
+    text-transform: uppercase;
+    text-align: center;
+}
+.notifications-item-title {
+    color: #007bff;
+}
+
+.notifications-list-item:nth-child(odd){
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+.notifications-list-item:nth-child(odd):hover{
+    background-color: #d1cece5e;
+}
+
+.notifications-list-item:nth-child(even){
+    padding: 10px;
+    background-color: #edf7fa;
+}
+.notifications-list-item:nth-child(even):hover{
+    background-color: #d7eef5;
+}
+
+/*--- error404 */
+.error404-title {
+    color: #3d8bfd;
+}
+.error404-content {
+    margin-top: 130px;
+}
+
+image {
+    width: 100%;
+}

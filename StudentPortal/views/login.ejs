@@ -1,0 +1,31 @@
+
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-5">
+        <div class="border p-3 rounded bg-light mt-5">
+            <div class="login-form">
+                <form action="/user/login" method="post">
+                    <h2 class="text-center mb-3">Đăng nhập</h2>
+                    <div class="form-group">
+                        <input value="<%= username %>" type="text" name="username" class="form-control" placeholder="Tài khoản">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Mật khẩu">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                    </div>
+                    <div class="form-group">
+                        <div>Hoặc đăng nhập bằng</div>
+                        <!-- Login with google -->
+                        <div class="g-signin2 mt-4" data-onsuccess="onSignIn"></div>
+                    </div>
+                    <div class="form-group text-center"> 
+                        <% if(error){ %>
+                            <div class="p-3 mb-2 bg-danger text-white rounded"><%= error %> </div>
+                        <% } %>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-5">
+            <div class="border p-3 rounded bg-light mt-5">
+                <div class="register-form">
+                    <form id="register-form" action="/user/register" method="post">
+                        <h2 class="text-center mb-3">Đăng ký tài khoản</h2>       
+                        <div class="form-group">
+                            <input value="<%= username %>" type="text" name="username" class="form-control" placeholder="Tên tài khoản">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control" placeholder="Mật khẩu">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" name="rePassword" class="form-control" placeholder="Nhập lại mật khẩu">
+                        </div>
+                        <div class="form-group">
+                            <input value="<%= name %>" type="text" name="name" class="form-control" placeholder="Tên Phòng/Khoa">
+                        </div>
+                        <!-- checkbox chọn quản lý phòng khoa -->
+                        <div class="dropdown form-group" onchange="onChangeFaculty()">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Quản lý Phòng/Khoa
+                            </button>
+                            <div id="register-faculty-list" class="dropdown-menu p-3 mh-25" aria-labelledby="dropdownMenuButton">
+                                <!-- Checkbox danh sách Phòng/Khoa -->
+                                <% departments.forEach(department => { %>
+                                    <div class="form-check mb-2">
+                                        <input name="faculty" class="form-check-input" type="checkbox" id="<%= department.departmentID %>" value="<%= department.department %>">
+                                        <label class="form-check-label" for="<%= department.departmentID %>">
+                                            <%= department.department %>
+                                        </label>
+                                    </div>
+                                <% }) %> 
+                            </div>
+                        </div>
+                        <!-- END checkbox -->
+                        <!-- Danh sách khoa đã chọn -->
+                        <div class="form-group">
+                            <ul id="register-selected-faculty">
+                                
+                            </ul>
+                        </div>
+                        <!-- END danh sách khoa đã chọn -->
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+                        </div>
+                        <% if(error){ %>
+                            <div class="form-group">
+                                <div class="p-3 mb-2 bg-danger text-white rounded"><%= error %></div>
+                            </div>
+                        <% } %> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

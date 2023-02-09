@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+    <!-- js/css -->
+    <script src="/javascripts/main.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    
+    <title>Thông báo</title>
+</head>
+<body>
+    <!-- navigation bar-->
+    <nav class="navbar navbar-expand-md bg-light navbar-light">
+        <!-- Brand -->
+        <a class="navbar-brand ml-3" href="/noti">
+            <h3>THÔNG BÁO</h3>
+        </a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link navbar-icon <% if(page=='home') { %> active border border-dark<% } %> " href="/noti" title="Trang chủ">
+                        <!-- Trang chủ -->
+                        <i class="bi bi-house-door-fill"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-icon <% if(page=='department') { %> active border border-dark <% } %> " href="/department" title="Phòng ban">
+                        <!-- Trang phòng ban -->
+                        <i class="bi bi-people-fill"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link navbar-icon <% if(page=='notification') { %> active border border-dark <% } %> " href="/noti/notifications" title="Danh sách thông báo">
+                        <!-- Trang Tất cả thông báo -->
+                        <i class="bi bi-list-ul"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-4 navbar-end">
+                <li class="nav-item dropdown">
+                    <a class="nav-link navbar-drop border rounded-circle text-center" href="#" id="navbardrop" data-toggle="dropdown">
+                        <i class="bi bi-caret-down-fill"></i>
+                    </a>
+
+                    <div class="dropdown-menu navbar-drop-transform">
+                        <!-- student có thể vào trang cá nhân -->
+                        <% if (user.role == 'student') { %> 
+                            <a class="dropdown-item" href="/user/profile/<%= user._id %> ">
+                                <div class="d-flex d-row">
+                                    <div>
+                                        <img class="mt-1 mr-1 rounded-circle" src="<%= user.avatar %> " alt="Avatar user" width="35px" height="35px">
+                                    </div>
+                                    <div>
+                                        <b><%= (user.nickName) ? user.nickName : user.name %> </b>
+                                        <div class="fs-smaller">Xem trang cá nhân</div>
+                                    </div>
+                                </div>
+                                
+                            </a>
+                        <% } %> 
+                        <!-- Tên phòng ban -->
+                        <% if (user.role != 'student') { %> 
+                            <div class="dropdown-item text-center">
+                                <b><%= user.name %> </b>
+                            </div>
+                        <% } %> 
+                        <!-- thông tin tài khoản -->
+                        <a class="dropdown-item" href="/user/setting">
+                            <i class="bi bi-person-circle fs-icon"></i>
+                            Thông tin tài khoản
+                        </a>
+                        <!-- Quản lý thông báo -->
+                        <% if (user.role == 'admin') { %> 
+                            <a class="dropdown-item" href="/noti/notifications">
+                                <i class="bi bi-file-post fs-icon"></i>
+                                Quản lý thông báo
+                            </a>
+                        <% } %> 
+                        <% if (user.role == 'department') { %> 
+                            <a class="dropdown-item" href="/department/<%= user.department[0].departmentID %> ">
+                                <i class="bi bi-file-post fs-icon"></i>
+                                Quản lý thông báo
+                            </a>
+                        <% } %> 
+                        <!-- Quản lý tài khoản -->
+                        <% if (user.role == 'admin') { %> 
+                            <a class="dropdown-item" href="/user/account-management">
+                                <i class="bi bi-person-lines-fill fs-icon"></i>
+                                Quản lý tài khoản
+                            </a>
+                        <% } %> 
+                        
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/user/logout">
+                            <i class="bi bi-box-arrow-right fs-icon"></i>
+                            Đăng xuất
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END navigation bar -->
+
+    <div class="container">
+        <div class="row">
+            <!-- <div id="new-notification" class="alert alert-success d-inline p-4">
+                <span id="new-noti-department"></span> vừa đăng một thông báo mới <a id="new-noti-content" class="text-decoration-none" href="/noti/notification/60a0a35dd4aa9a05a8989e6e"></a>
+            </div> -->
+            <%- body %>
+        </div>
+    </div>
+        
+</body>
+</html>

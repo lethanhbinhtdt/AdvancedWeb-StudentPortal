@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="border p-3 rounded bg-light mt-5">
+                <form action="/noti/<%= (page == 'Đăng') ? 'add' : 'update/'+notiID%> " method="post">
+                    <h2 class="text-center mb-3"><%= page %> thông báo</h2>
+
+                    <div class="form-group">
+                        <input value="<%= title %>" type="text" name="title" class="form-control" placeholder="Tiêu đề thông báo">
+                    </div>
+                    <div class="form-group">
+                        <textarea type="text" name="content" class=" form-control" placeholder="Nội dung thông báo" rows="10"><%= content %></textarea>
+                    </div>
+                    <!-- chọn Phòng Khoa-->
+                    <div class="form-group">
+                        <p>Chọn Phòng/Khoa</p>
+                        <select id="post-noti-selected-faculty" name="departmentIDSelected" class="btn border border-secondary rounded">
+                            <% departments.forEach(department => { %>
+                                <option value="<%= department.departmentID %>" <% if(department.departmentID == departmentIDSelected){ %> selected <% } %>>
+                                    <%= department.department %>
+                                </option>
+                            <% }) %> 
+                        </select>
+                    </div>
+                   
+                    <!-- END checkbox -->
+
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block"><%= page %></button>
+                    </div>
+                    <% if(error){ %>
+                        <div class="form-group text-center">
+                            <div class="p-3 mb-2 bg-danger text-white rounded"><%= error %></div>
+                        </div>
+                    <% } %> 
+                </form>
+            </div>
+        </div>
+    </div> 
+</div>

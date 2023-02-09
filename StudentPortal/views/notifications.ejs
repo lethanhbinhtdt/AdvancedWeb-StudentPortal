@@ -1,0 +1,131 @@
+
+<div class="col-12 border mt-3 bg-white">
+    <div class="col-12 mb-3">
+        <div aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/noti">Trang chủ</a></li>
+                    <!-- Nếu tìm theo phòng ban -->
+                    <% if (byDepartment) { %> 
+                        <li class="breadcrumb-item"><a href="/department">Phòng ban</a></li>
+                    <% } %> 
+                    <li class="breadcrumb-item active" aria-current="page">Danh sách thông báo</li>
+            </ol>
+        </div>
+        <div class="notifications-title pt-3">
+            <h4> <%= (byDepartment) ? byDepartment:'tất cả thông báo' %> </h4>
+        </div>
+        
+
+        <div class="row ">
+            <div class="col-md-9 text-center my-2">
+                <div class="btn-toolbar">
+                    <div class="btn-group">
+                        <a href="/noti/notification/1" class="btn btn-outline-secondary">&#171;</a>
+                        <a href="/noti/notification/1" class="btn btn-outline-secondary">&#8249;</a>
+
+                        <a href="/noti/notification/1" class="btn btn-outline-secondary active">1</a>
+                        <a href="/noti/notification/1" class="btn btn-outline-secondary">2</a>
+                        <a href="/noti/notification/1" class="btn btn-outline-secondary">3</a>
+                        <a href="/noti/notification/1" class="btn btn-outline-secondary">4</a>
+                        
+                        <a href="/noti/notification/1" class="btn btn-outline-secondary">&#8250;</a>
+                        <a href="/noti/notification/1" class="btn btn-outline-secondary">&#187;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 text-right my-2">
+                <!-- Nút đăng thông báo -->
+                <% if (user.role == 'admin') { %> 
+                    <a href="/noti/add" class="btn btn-outline-dark">
+                        <i class="bi bi-file-earmark-plus fs-icon"></i>
+                        Thêm
+                    </a>
+                <% } %> 
+                
+                <!-- Nút đăng thông báo -->
+                <% if(user.role == 'department') { 
+                    user.department.forEach(e => {
+                        if (e.department == byDepartment) { %>
+
+                            <a href="/noti/add" class="btn btn-outline-dark">
+                                <i class="bi bi-file-earmark-plus fs-icon"></i>
+                                Thêm
+                            </a>
+                <%      }
+                    }
+                )} %>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- danh sách thông báo -->
+    <div class="col-12 p-3 notifications-list">
+        <% notifications.forEach(notification => { %>
+            <div class="notifications-list-item mb-2">
+                <div class="notifications-item-title mb-2 d-flex justify-content-between">
+                    <b><%= notification.title %></b>
+
+                    <% if(user.role == 'department') { 
+                            user.department.forEach(e => { 
+                                if (e.departmentID === notification.departmentID) {%>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn bi bi-three-dots rounded-pill" data-toggle="dropdown"></button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="/noti/update/<%= notification._id %>">Sửa</a>
+                                            
+                                            <div class="dropdown-item delete-btn" onclick="deleteNoti(this)" data-id="<%= notification._id %>" data-name="<%= notification.title %>">Xóa</div>
+                                        </div>
+                                    </div>
+                    <%          }
+                            })
+                    } %>
+                    <% if (user.role == 'admin') { %>
+                        <div class="dropdown">
+                            <button type="button" class="btn bi bi-three-dots rounded-pill" data-toggle="dropdown"></button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/noti/update/<%= notification._id %>">Sửa</a>
+                                
+                                <div class="dropdown-item delete-btn" onclick="deleteNoti(this)" data-id="<%= notification._id %>" data-name="<%= notification.title %>">Xóa</div>
+                            </div>
+                        </div>
+                    <% } %>
+
+                </div>
+
+                <div>
+                    <p class="noti-content-3line"><%= notification.content %> </p>
+                </div>
+                <div class="d-flex justify-content-between fs-smaller">
+                    <a href="/noti/notification/<%= notification._id %> " class="text-decoration-none" >Chi tiết thông báo</a>
+                    <p class="text-secondary">[<%= notification.department %>] - <%= notification.create_on %> </p>
+                </div>
+            </div>
+        <% }) %> 
+    </div>
+
+</div>
+
+<div class="modal" id="confirmDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+    
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Xoá thông báo</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+    
+            <div class="modal-body">
+                Bạn có chắc muốn xóa thông báo <strong class="noti-title">ABC</strong>?
+            </div>
+    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-confirm-delete" onclick="confirmDeleteNoti(this)">Xóa</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            </div>
+    
+        </div>
+    </div>
+</div>
+

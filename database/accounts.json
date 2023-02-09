@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "608505df842f2c27781c609d"
+  },
+  "faculty": [
+    ""
+  ],
+  "username": "admin",
+  "password": "$2b$10$bCh2ruPCGNCVJfnQSKD5gu5BE.PycinF26q46PTTMT0gt7dji2tSS",
+  "email": "admin@gmail.com",
+  "name": "admin",
+  "avatar": "",
+  "role": "admin",
+  "__v": 0
+}]

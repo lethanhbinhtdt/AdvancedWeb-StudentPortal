@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "609a39dc2b2afc252876c164"
+  },
+  "title": "Thông báo số 1",
+  "content": "Đây là thông báo có nội dung quan trong\r\nĐây là thông báo có nội dung quan trong\r\nĐây là thông báo có nội dung quan trong\r\nĐây là thông báo có nội dung quan trong",
+  "create_on": "11/05/2021",
+  "department": "Phòng điện toán và máy tính",
+  "departmentID": "004",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a3cf722b18c14ac33e144"
+  },
+  "title": "Thông báo số 2",
+  "content": "'Đây là thông báo có nội dung quan trong\\r\\n' +\r\n      'Đây là thông báo có nội dung quan trong\\r\\n' +\r\n      'Đây là thông báo có nội dung quan trong\\r\\n' +\r\n      'Đây là thông báo có nội dung quan trong'",
+  "create_on": "11/05/2021",
+  "department": "Phòng Sau đại học",
+  "departmentID": "003",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "609a3d0522b18c14ac33e145"
+  },
+  "title": "Thông báo số 3",
+  "content": "'Đây là thông báo có nội dung quan trong\\r\\n' +\r\n      'Đây là thông báo có nội dung quan trong\\r\\n' +\r\n      'Đây là thông báo có nội dung quan trong\\r\\n' +\r\n      'Đây là thông báo có nội dung quan trong'",
+  "create_on": "11/05/2021",
+  "department": "Phòng khảo thí và kiểm định chất lượng",
+  "departmentID": "005",
+  "__v": 0
+}]
